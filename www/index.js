@@ -29,15 +29,14 @@ const monthNames = [
     "tr:first-child>td:last-child"
   ).innerText;
 
-  if(monthlyInterest.innerText == ''){
-    monthlyInterest.innerText = '0.00'
+  if (monthlyInterest.innerText == "") {
+    monthlyInterest.innerText = "0.00";
   }
 
   // show total assets from forecast table
   totalAssets.innerText = forecastTableBody.querySelector(
     "tr:first-child>td:nth-child(2)"
   ).innerText;
-  
 })();
 
 function getNewCard(id, title, value) {
@@ -72,7 +71,7 @@ function generateForecastTable() {
     for (let itemID in itemMap) {
       // iterate each day entry of item
       itemMap[itemID].forecast.forEach((entry) => {
-        // accumulate interest
+        // accumulate interest for current month entries
         let entryDate = new Date(entry[0]);
         if (
           entryDate.getFullYear() == date.getFullYear() &&
@@ -106,8 +105,13 @@ function generateForecastTable() {
       : "";
     tr.appendChild(td);
 
+    // draw a seperator on january
+    if (date.getMonth() == 0) {
+      tr.classList.add("january");
+    }
+
     forecastTableBody.appendChild(tr);
     // increment term
-    date.setMonth(date.getMonth() + 1);
+    date.setDate(lastDate.getDate() + 1);
   }
 }

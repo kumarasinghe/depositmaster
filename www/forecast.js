@@ -38,7 +38,12 @@ window.onload = () => {
       entryDate.getMonth() == today.getMonth() &&
       entryDate.getFullYear() == today.getFullYear()
     ) {
-      tr.className = "highlight";
+      tr.classList.add("highlight");
+    }
+
+    // draw a seperator on january
+    if(entryDate.getMonth() == 0){
+      tr.classList.add("january");
     }
 
     forecastTableBody.appendChild(tr);

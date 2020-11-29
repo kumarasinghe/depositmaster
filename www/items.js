@@ -1,16 +1,19 @@
 let itemMap = {};
 const FORECAST_YEARS = 5;
-const forecastEndDate = new Date();
-forecastEndDate.setFullYear(forecastEndDate.getFullYear() + FORECAST_YEARS);
+const forecastEndDate = new Date(
+  new Date().getFullYear() + FORECAST_YEARS,
+  new Date().getMonth() + 1,
+  0
+);
 
 if (localStorage["itemMap"]) {
   itemMap = JSON.parse(localStorage["itemMap"]);
   for (let itemID in itemMap) {
     let item = itemMap[itemID];
-    // parse date objetcs
-    item.startDate = new Date(item.startDate);
+    // parse date objetcs. trim time
+    item.startDate = new Date(new Date(item.startDate).toDateString());
     if (item.endDate) {
-      item.endDate = new Date(item.endDate);
+      item.endDate = new Date(new Date(item.endDate).toDateString());
     }
 
     generateItemForecast(item);
@@ -45,7 +48,7 @@ function generateItemForecast(item) {
     (item.endDate ? date <= item.endDate : true)
   ) {
     let term = date.toDateString();
-    item.forecast.push([term, 0, undefined]); // [month, value, interest for value]
+    item.forecast.push([term, 0, 0]); // [month, value, interest for value]
     date.setDate(date.getDate() + 1);
   }
 
@@ -100,7 +103,7 @@ function generateItemForecast(item) {
       // set interest
       let interest;
       // interest occuring point
-      if (entry[2] != undefined) {
+      if (entry[2] == "*") {
         interest = entry[2] = (entry[1] * (item.interest.rate / 100)) / 12;
       } else {
         interest = entry[2] = 0;
