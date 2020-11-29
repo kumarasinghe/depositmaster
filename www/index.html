@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deposit Master</title>
+    <link rel="stylesheet" href="master.css" />
+    <style>
+
+      .sectionTitle {
+        color: rgb(146, 146, 146);
+      }
+      #summaryContainer {
+        margin: 1em 0 2em 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+      .summaryItem {
+        padding: 1em 0;
+        text-align: center;
+      }
+      #monthlyInterest {
+        font-weight: bold;
+        font-size: 2em;
+        color: greenyellow;
+      }
+      #totalAssets {
+        font-weight: bold;
+        font-size: 2em;
+        color: dodgerblue;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(33, 40, 56);
+        padding: 1em;
+        border-radius: 4px;
+        margin: 1em 0;
+        box-shadow: 0 2px 5px black, inset 0 1px rgba(255, 255, 255, 0.05);
+      }
+      .card-title {
+        font-size: 1em;
+        color: gainsboro;
+        margin-bottom: 0.5em;
+      }
+      .card-asset-value {
+        font-weight: bold;
+        color: greenyellow;
+        text-align: right;
+      }
+      #forecastContainer {
+        margin: 2em 0 1em 0;
+      }
+      #forecastTable {
+        width: 100%;
+        font-size: 0.8em;
+        text-align: center;
+        background-color: #101321;
+        padding: 1em;
+        border-radius: 4px;
+        box-shadow: inset 0 2px black;
+        border-collapse: collapse;
+      }
+      #forecastTable th{
+        font-family: monospace;
+        padding: 10px;
+       
+      }
+      #forecastTable td{
+        font-family: monospace;
+        padding: 5px;
+      }
+      #forecastTable>tbody>tr:nth-of-type(odd){
+        background-color: #0a0d16;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <h3 id="headerTitle">Deposit Master</h3>
+      <button id="addButton" class="button" onclick="location.href='manage.html'">Add</button>
+    </header>
+    <!-- SUMMARY -->
+    <section id="summaryContainer">
+      <div class="summaryItem">
+        <div id="monthlyInterest">0</div>
+        <div>Monthly Interest</div>
+      </div>
+      <div class="summaryItem">
+        <div id="totalAssets">0</div>
+        <div>Total Assets</div>
+      </div>
+    </section>
+    <!-- ASSETS & LIABILITIES -->
+    <section id="cardContainer"></section>
+    <!-- FORECAST -->
+    <div id="forecastContainer">
+      <h4 class="sectionTitle">Forecast</h4>
+      <table id="forecastTable">
+        <thead>
+          <th>Month</th>
+          <th>Assets</th>
+          <th>Interest</th>
+        </thead>
+        <tbody id="forecastTableBody">
+        </tbody>
+      </table>
+    </div>
+    <script src="items.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

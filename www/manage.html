@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deposit Master</title>
+    <link rel="stylesheet" href="master.css" />
+    <style>
+      .description {
+        padding: 1em 0;
+        font-size: 0.8em;
+        color: dodgerblue;
+      }
+      footer {
+        text-align: right;
+        margin-top: 1em;
+      }
+      fieldset {
+        margin: 1em 0;
+        padding: 0 0.75em;
+        padding-bottom: 0.5em;
+        border: 1px solid dodgerblue;
+        border-radius: 4px;
+      }
+      #removeButton {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <h3 id="headerTitle">Add</h3>
+      <button id="removeButton" class="button" onclick="onRemoveClicked()">
+        Remove
+      </button>
+    </header>
+
+    <!-- FORM -->
+    <div>
+      <div class="description">
+        Add an asset such as your bank savings, fixed deposits, vehicle or the
+        salary.
+      </div>
+      <input type="text" id="inputTitle" placeholder="Title" />
+      <input type="number" id="inputValue" placeholder="Value" />
+      <label class="description">Start Date (Optional)</label>
+      <input id="startDate" type="date" id="" />
+      <label class="description">End Date (Optional)</label>
+      <input id="endDate" type="date" />
+      <!-- RECURRING -->
+      <fieldset>
+        <legend>
+          <input id="recurringCheckbox" type="checkbox" /> Reccurs After Every
+        </legend>
+        <select id="recurringFrequencySelect">
+          <option value="1">Day</option>
+          <option value="7">7 Days</option>
+          <option value="30" selected>30 Days</option>
+          <option value="180">6 Months</option>
+          <option value="365">1 Year</option>
+        </select>
+      </fieldset>
+      <!-- INTEREST -->
+      <fieldset>
+        <legend>
+          <input id="interestCheckbox" type="checkbox" /> Yields Interest On
+          Every
+        </legend>
+        <select id="interestFrequency">
+          <option value="1">Day</option>
+          <option value="7">7 Days</option>
+          <option value="30" selected>30 Days</option>
+          <option value="180">6 Months</option>
+          <option value="365">1 Year</option>
+        </select>
+        <input
+          type="number"
+          id="inputRate"
+          placeholder="Annual Interest Rate %"
+        />
+        <input id="compundInterestCheckbox" type="checkbox" checked/> Compound the interest <br/><small>(Add interest back to the asset)</small>
+      </fieldset>
+      <span class="description"
+        >* 30 Days are different from a month. Interest sometimes may not fall
+        in February.</span
+      >
+      <!-- FOOTER -->
+      <footer>
+        <button id="btnCancel" onclick="onCancelButtonClicked()">Cancel</button>
+        <button onclick="onSaveClicked()">Save</button>
+      </footer>
+    </div>
+    <script src="items.js"></script>
+    <script src="manage.js"></script>
+  </body>
+</html>

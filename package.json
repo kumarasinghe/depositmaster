@@ -1,0 +1,29 @@
+{
+  "name": "com.naveenk.depositmaster",
+  "displayName": "DepositMaster",
+  "version": "1.0.0",
+  "description": "Plan your future wealth, calculate & forecast interets for investments such as fixed deposits, salary etc.",
+  "main": "index.js",
+  "scripts": {
+    "build": "cordova build",
+    "release": "cordova build --release --buildConfig=build.json",
+    "start": "adb devices -l && cordova build && cordova run"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova-android": "^8.0.0",
+    "cordova-plugin-whitelist": "^1.3.4"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
+}

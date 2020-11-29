@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deposit Master</title>
+    <link rel="stylesheet" href="master.css" />
+    <style>
+      #forecastContainer {
+        margin: 2em 0 1em 0;
+      }
+      #forecastTable {
+        width: 100%;
+        font-size: 0.8em;
+        text-align: center;
+        background-color: #101321;
+        padding: 1em;
+        border-radius: 4px;
+        box-shadow: inset 0 2px black;
+        border-collapse: collapse;
+      }
+      #forecastTable th{
+        font-family: monospace;
+        padding: 10px;
+       
+      }
+      #forecastTable td{
+        font-family: monospace;
+        padding: 5px;
+      }
+      #forecastTable>tbody>tr:nth-of-type(odd){
+        background-color: #0a0d16;
+      }
+      .highlight{
+        background-color: #242a44;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <h3 id="headerTitle"></h3>
+      <button id="editButton" class="button" onclick="onEditButtonClicked()">Edit</button>
+    </header>
+    <!-- FORECAST -->
+    <div id="forecastContainer">
+      <table id="forecastTable">
+        <thead>
+          <th>Month</th>
+          <th>Assets</th>
+          <th>Interest</th>
+        </thead>
+        <tbody id="forecastTableBody">
+        </tbody>
+      </table>
+    </div>
+    <script src="items.js"></script>
+    <script src="forecast.js"></script>
+  </body>
+</html>
