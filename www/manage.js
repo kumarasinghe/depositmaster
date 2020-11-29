@@ -21,6 +21,8 @@ if (itemID) {
   if (item.recurring) {
     recurringCheckbox.checked = true;
     recurringFrequencySelect.value = item.recurring;
+    recurringFrequencySelect.disabled = false
+    recurringFrequencySelect.style.opacity = 1
   }
 
   if (item.interest) {
@@ -28,6 +30,9 @@ if (itemID) {
     inputInterestRate.value = item.interest.rate;
     interestFrequency.value = item.interest.frequency;
     compundInterestCheckbox.checked = item.interest.compound;
+    interestFieldSetContent.disabled = false
+    interestFieldSetContent.style.opacity = 1
+    interestFieldSetContent.style.pointerEvents = 'auto'
   }
 }
 
