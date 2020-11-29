@@ -12,18 +12,27 @@
         color: dodgerblue;
       }
       footer {
-        text-align: right;
         margin-top: 1em;
+        display: flex;
+        justify-content: center
+      }
+      footer>button{
+        width: 50%;
+        margin: .2em;
       }
       fieldset {
-        margin: 1em 0;
-        padding: 0 0.75em;
+        padding: 0 1em;
         padding-bottom: 0.5em;
-        border: 1px solid dodgerblue;
+        border: 1px solid #165da2;
         border-radius: 4px;
       }
       #removeButton {
         display: none;
+      }
+      #interestFieldSetContent,
+      #recurringFrequencySelect {
+        opacity: 0.5;
+        pointer-events: none;
       }
     </style>
   </head>
@@ -44,14 +53,23 @@
       </div>
       <input type="text" id="inputTitle" placeholder="Title" />
       <input type="number" id="inputValue" placeholder="Value" />
+      <br />
       <label class="description">Start Date (Optional)</label>
       <input id="startDate" type="date" id="" />
+      <br />
       <label class="description">End Date (Optional)</label>
       <input id="endDate" type="date" />
+      <br />
+      <br />
       <!-- RECURRING -->
       <fieldset>
         <legend>
-          <input id="recurringCheckbox" type="checkbox" /> Reccurs After Every
+          <input
+            id="recurringCheckbox"
+            type="checkbox"
+            onchange="onRecurringCheckboxChanged()"
+          />
+          Reccurs After Every
         </legend>
         <select id="recurringFrequencySelect">
           <option value="1">Day</option>
@@ -61,33 +79,46 @@
           <option value="365">1 Year</option>
         </select>
       </fieldset>
+      <br />
       <!-- INTEREST -->
       <fieldset>
         <legend>
-          <input id="interestCheckbox" type="checkbox" /> Yields Interest On
-          Every
+          <input
+            id="interestCheckbox"
+            type="checkbox"
+            onchange="onInterestCheckboxChanged()"
+          />
+          Yields Interest On Every
         </legend>
-        <select id="interestFrequency">
-          <option value="1">Day</option>
-          <option value="7">7 Days</option>
-          <option value="30" selected>30 Days</option>
-          <option value="180">6 Months</option>
-          <option value="365">1 Year</option>
-        </select>
-        <input
-          type="number"
-          id="inputRate"
-          placeholder="Annual Interest Rate %"
-        />
-        <input id="compundInterestCheckbox" type="checkbox" checked/> Compound the interest <br/><small>(Add interest back to the asset)</small>
+        <div id="interestFieldSetContent">
+          <select id="interestFrequency">
+            <option value="1">Day</option>
+            <option value="7">7 Days</option>
+            <option value="30" selected>30 Days</option>
+            <option value="180">6 Months</option>
+            <option value="365">1 Year</option>
+          </select>
+          <input
+            type="number"
+            id="inputInterestRate"
+            placeholder="Annual Interest Rate %"
+          />
+          <input id="compundInterestCheckbox" type="checkbox" checked />
+          Compound the interest <br /><small
+            >(Add interest back to the asset)</small
+          >
+        </div>
       </fieldset>
+
+      <br />
       <span class="description"
         >* 30 Days are different from a month. Interest sometimes may not fall
         in February.</span
       >
+
       <!-- FOOTER -->
       <footer>
-        <button id="btnCancel" onclick="onCancelButtonClicked()">Cancel</button>
+        <button onclick="onCancelButtonClicked()">Cancel</button>
         <button onclick="onSaveClicked()">Save</button>
       </footer>
     </div>

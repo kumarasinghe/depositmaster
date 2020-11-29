@@ -25,7 +25,7 @@ if (itemID) {
 
   if (item.interest) {
     interestCheckbox.checked = true;
-    inputRate.value = item.interest.rate;
+    inputInterestRate.value = item.interest.rate;
     interestFrequency.value = item.interest.frequency;
     compundInterestCheckbox.checked = item.interest.compound;
   }
@@ -53,10 +53,10 @@ function onSaveClicked() {
     );
   }
 
-  if (interestCheckbox.checked && inputRate.value != "") {
+  if (interestCheckbox.checked && inputInterestRate.value != "") {
     item.interest = {
       frequency: parseInt(interestFrequency.value),
-      rate: parseFloat(inputRate.value),
+      rate: parseFloat(inputInterestRate.value),
       compound: compundInterestCheckbox.checked,
     };
   }
@@ -76,5 +76,29 @@ function onRemoveClicked() {
 function onCancelButtonClicked() {
   if (confirm("Do you want to cancel editing?")) {
     window.history.back();
+  }
+}
+
+function onInterestCheckboxChanged(){
+  if(interestCheckbox.checked){
+    interestFieldSetContent.disabled = false
+    interestFieldSetContent.style.opacity = 1
+    interestFieldSetContent.style.pointerEvents = 'auto'
+  }
+  else{
+    interestFieldSetContent.disabled = true
+    interestFieldSetContent.style.opacity = 0.5
+    interestFieldSetContent.style.pointerEvents = 'none'
+  }
+}
+
+function onRecurringCheckboxChanged(){
+  if(recurringCheckbox.checked){
+    recurringFrequencySelect.disabled = false
+    recurringFrequencySelect.style.opacity = 1
+  }
+  else{
+    recurringFrequencySelect.disabled = true
+    recurringFrequencySelect.style.opacity = 0.5
   }
 }

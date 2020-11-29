@@ -28,6 +28,11 @@ function removeItem(itemID) {
 }
 
 function saveItemMap() {
+  // strip forecasts
+  for (let itemID in itemMap) {
+    let item = itemMap[itemID];
+    item.forecast = [];
+  }
   localStorage["itemMap"] = JSON.stringify(itemMap);
 }
 
