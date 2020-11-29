@@ -1,6 +1,6 @@
 {
   "name": "com.naveenk.depositmaster",
-  "displayName": "DepositMaster",
+  "displayName": "Deposit Master",
   "version": "1.0.0",
   "description": "Plan your future wealth, calculate & forecast interets for investments such as fixed deposits, salary etc.",
   "main": "index.js",

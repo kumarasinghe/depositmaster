@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.naveenk.depositmaster" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>DepositMaster</name>
+    <name>Deposit Master</name>
     <description>
         Plan your future wealth, calculate and forecast interets for investments such as fixed deposits, salary etc.
     </description>
