@@ -2,16 +2,16 @@
   "android": {
     "debug": {
       "keystore": "debug.keystore",
-      "storePassword": "qweqwe",
+      "storePassword": "dndkumarasinghe",
       "alias": "app_debug",
-      "password": "qweqwe",
+      "password": "dndkumarasinghe",
       "keystoreType": ""
     },
     "release": {
       "keystore": "release.keystore",
-      "storePassword": "qweqwe",
+      "storePassword": "dndkumarasinghe",
       "alias": "app_release",
-      "password": "qweqwe",
+      "password": "dndkumarasinghe",
       "keystoreType": ""
     }
   }

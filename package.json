@@ -5,9 +5,10 @@
   "description": "Plan your future wealth, calculate & forecast interets for investments such as fixed deposits, salary etc.",
   "main": "index.js",
   "scripts": {
-    "build": "cordova build",
-    "release": "cordova build --release --buildConfig=build.json",
-    "start": "adb devices -l && cordova build && cordova run"
+    "build": "cordova clean && cordova build",
+    "release": "cordova clean && cordova build --release --buildConfig=build.json",
+    "generate-keystore": "keytool -genkey -v -keystore release.keystore -alias app_release -keyalg RSA -keysize 2048 -validity 10000",
+    "start": "adb devices -l && cordova clean && cordova build && cordova run"
   },
   "keywords": [
     "ecosystem:cordova"
