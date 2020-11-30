@@ -7,7 +7,7 @@
     <author email="dndkumarasinghe@gmail.com" href="http://facebook.com/kumarasinghe">
         Apache Cordova Team
     </author>
-    <icon src="www/icon.png" />
+    <icon src="res/icon.png" />
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -18,8 +18,15 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <preference name="NavigationBarBackgroundColor" value="#000000" />
-        <preference name="BackgroundColor" value="0xff000000" />
+        <preference name="NavigationBarBackgroundColor" value="#101422" />
+        <preference name="BackgroundColor" value="0xff101422" />
+        <preference name="StatusBarBackgroundColor" value="#101422" />
+        <splash density="ldpi" src="res/icon.png" />
+        <splash density="mdpi" src="res/icon.png" />
+        <splash density="hdpi" src="res/icon.png" />
+        <splash density="xhdpi" src="res/icon.png" />
+        <splash density="xxhdpi" src="res/icon.png" />
+        <splash density="xxxhdpi" src="res/icon.png" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
