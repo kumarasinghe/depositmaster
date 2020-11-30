@@ -1,17 +1,17 @@
 {
   "android": {
     "debug": {
-      "keystore": "./android.keystore",
-      "storePassword": "",
-      "alias": "",
-      "password": "",
+      "keystore": "debug.keystore",
+      "storePassword": "qweqwe",
+      "alias": "app_debug",
+      "password": "qweqwe",
       "keystoreType": ""
     },
     "release": {
-      "keystore": "./android.keystore",
-      "storePassword": "",
-      "alias": "",
-      "password": "",
+      "keystore": "release.keystore",
+      "storePassword": "qweqwe",
+      "alias": "app_release",
+      "password": "qweqwe",
       "keystoreType": ""
     }
   }

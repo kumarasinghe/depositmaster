@@ -18,7 +18,8 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <preference name="BackgroundColor" value="0xff161c29" />
+        <preference name="NavigationBarBackgroundColor" value="#000000" />
+        <preference name="BackgroundColor" value="0xff000000" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
