@@ -1,7 +1,7 @@
 {
   "name": "com.eleganit.depositmaster",
   "displayName": "Deposit Master",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Plan your future wealth, calculate & forecast interests for investments such as fixed deposits, salary etc.",
   "main": "index.js",
   "scripts": {
