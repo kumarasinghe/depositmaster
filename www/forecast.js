@@ -57,6 +57,10 @@ function formatValue(value){
   else if(`${value}`.match(/[0-9]+\.[0-9]{1}/)){
     return `${match[0]}0`
   }
+  // invalid value
+  else if(!value){
+    return '0.00'
+  }
   // has no decimal point
   else{
     return `${value}.00`

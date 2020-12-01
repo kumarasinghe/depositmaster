@@ -25,18 +25,18 @@ const monthNames = [
   generateForecastTable();
 
   // show monthly Interest from forecast table
-  monthlyInterest.innerText = parseFloat(forecastTableBody.querySelector(
-    "tr:first-child>td:last-child"
-  ).innerText).toLocaleString('en');
+  monthlyInterest.innerText = parseFloat(
+    forecastTableBody.querySelector("tr:first-child>td:last-child").innerText
+  ).toLocaleString("en");
 
   if (monthlyInterest.innerText == "") {
     monthlyInterest.innerText = "0.00";
   }
 
   // show total assets from forecast table
-  totalAssets.innerText = parseFloat(forecastTableBody.querySelector(
-    "tr:first-child>td:nth-child(2)"
-  ).innerText).toLocaleString('en');
+  totalAssets.innerText = parseFloat(
+    forecastTableBody.querySelector("tr:first-child>td:nth-child(2)").innerText
+  ).toLocaleString("en");
 })();
 
 function getNewCard(id, title, value) {
@@ -96,7 +96,7 @@ function generateForecastTable() {
     tr.appendChild(td);
 
     td = document.createElement("td");
-    td.innerText = formatValue(monthlyAllItemAssetTotal)
+    td.innerText = formatValue(monthlyAllItemAssetTotal);
     tr.appendChild(td);
 
     td = document.createElement("td");
@@ -115,21 +115,23 @@ function generateForecastTable() {
     date.setDate(lastDate.getDate() + 1);
   }
 
-  function formatValue(value){
-    
+  function formatValue(value) {
     // has two decimal points
-    let match = `${value}`.match(/[0-9]+\.[0-9]{2}/)
-    if(match){
-      return match[0].toLocaleString('en')
+    let match = `${value}`.match(/[0-9]+\.[0-9]{2}/);
+    if (match) {
+      return match[0].toLocaleString("en");
     }
     // has one decimal points
-    else if(`${value}`.match(/[0-9]+\.[0-9]{1}/)){
-      return `${match[0]}0`
+    else if (`${value}`.match(/[0-9]+\.[0-9]{1}/)) {
+      return `${match[0]}0`;
+    }
+    // invalid value
+    else if (!value) {
+      return "0.00";
     }
     // has no decimal point
-    else{
-      return `${value}.00`
+    else {
+      return `${value}.00`;
     }
   }
-
 }
