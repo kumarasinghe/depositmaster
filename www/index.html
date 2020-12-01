@@ -6,7 +6,6 @@
     <title>Deposit Master</title>
     <link rel="stylesheet" href="master.css" />
     <style>
-
       .sectionTitle {
         color: rgb(146, 146, 146);
       }
@@ -62,27 +61,49 @@
         box-shadow: inset 0 2px 5px black;
         border-collapse: collapse;
       }
-      #forecastTable th{
+      #forecastTable tr {
+        box-shadow: inset 0 1px 1px #ffffff1a, inset 0 -1px 1px black;
+      }
+      #forecastTable th {
         font-family: monospace;
         padding: 10px;
       }
-      #forecastTable td{
+      #forecastTable td {
         font-family: monospace;
         padding: 5px;
       }
-      #forecastTable>tbody>tr:nth-of-type(odd){
+      #forecastTable > tbody > tr:nth-of-type(odd) {
         background-color: #101422;
       }
-      .january{
-        border-top: 2px solid #21323e;
+      .january {
+        background-color: #212944;
       }
     </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Z9ESTG8ERD"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-Z9ESTG8ERD");
+    </script>
   </head>
   <body>
     <!-- HEADER -->
     <header>
       <h3 id="headerTitle">Deposit Master</h3>
-      <button id="addButton" class="button" onclick="location.href='manage.html'">Add</button>
+      <button
+        id="addButton"
+        class="button"
+        onclick="location.href='manage.html'"
+      >
+        Add
+      </button>
     </header>
     <!-- SUMMARY -->
     <section id="summaryContainer">
@@ -106,8 +127,7 @@
           <th>Assets</th>
           <th>Interest</th>
         </thead>
-        <tbody id="forecastTableBody">
-        </tbody>
+        <tbody id="forecastTableBody"></tbody>
       </table>
     </div>
     <script src="items.js"></script>
