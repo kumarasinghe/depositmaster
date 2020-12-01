@@ -46,24 +46,19 @@ window.onload = () => {
   });
 };
 
-function formatValue(value){
-    
+function formatValue(value) {
   // has two decimal points
-  let match = `${value}`.match(/[0-9]+\.[0-9]{2}/)
-  if(match){
-    return match[0].toLocaleString('en')
+  let match = `${value}`.match(/[0-9]+\.[0-9]{2}/);
+  if (match) {
+    return match[0].toLocaleString("en");
   }
   // has one decimal points
-  else if(`${value}`.match(/[0-9]+\.[0-9]{1}/)){
-    return `${match[0]}0`
-  }
-  // invalid value
-  else if(!value){
-    return '0.00'
+  else if (`${value}`.match(/[0-9]+\.[0-9]{1}/)) {
+    return `${match[0]}0`;
   }
   // has no decimal point
-  else{
-    return `${value}.00`
+  else {
+    return `${value}.00`;
   }
 }
 

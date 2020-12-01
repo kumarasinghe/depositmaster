@@ -29,7 +29,7 @@ const monthNames = [
     forecastTableBody.querySelector("tr:first-child>td:last-child").innerText
   ).toLocaleString("en");
 
-  if (monthlyInterest.innerText == "") {
+  if (monthlyInterest.innerText == "" || monthlyInterest.innerText == "NaN") {
     monthlyInterest.innerText = "0.00";
   }
 
@@ -37,6 +37,10 @@ const monthNames = [
   totalAssets.innerText = parseFloat(
     forecastTableBody.querySelector("tr:first-child>td:nth-child(2)").innerText
   ).toLocaleString("en");
+
+  if (totalAssets.innerText == "0") {
+    totalAssets.innerText = "0.00";
+  }
 })();
 
 function getNewCard(id, title, value) {
@@ -124,10 +128,6 @@ function generateForecastTable() {
     // has one decimal points
     else if (`${value}`.match(/[0-9]+\.[0-9]{1}/)) {
       return `${match[0]}0`;
-    }
-    // invalid value
-    else if (!value) {
-      return "0.00";
     }
     // has no decimal point
     else {
