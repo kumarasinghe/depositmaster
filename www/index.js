@@ -25,18 +25,18 @@ const monthNames = [
   generateForecastTable();
 
   // show monthly Interest from forecast table
-  monthlyInterest.innerText = forecastTableBody.querySelector(
+  monthlyInterest.innerText = parseFloat(forecastTableBody.querySelector(
     "tr:first-child>td:last-child"
-  ).innerText;
+  ).innerText).toLocaleString('en');
 
   if (monthlyInterest.innerText == "") {
     monthlyInterest.innerText = "0.00";
   }
 
   // show total assets from forecast table
-  totalAssets.innerText = forecastTableBody.querySelector(
+  totalAssets.innerText = parseFloat(forecastTableBody.querySelector(
     "tr:first-child>td:nth-child(2)"
-  ).innerText;
+  ).innerText).toLocaleString('en');
 })();
 
 function getNewCard(id, title, value) {
@@ -96,12 +96,12 @@ function generateForecastTable() {
     tr.appendChild(td);
 
     td = document.createElement("td");
-    td.innerText = monthlyAllItemAssetTotal.toFixed(2);
+    td.innerText = formatValue(monthlyAllItemAssetTotal)
     tr.appendChild(td);
 
     td = document.createElement("td");
     td.innerText = monthlyAllItemInterestTotal
-      ? monthlyAllItemInterestTotal.toFixed(2)
+      ? formatValue(monthlyAllItemInterestTotal)
       : "";
     tr.appendChild(td);
 
@@ -114,4 +114,22 @@ function generateForecastTable() {
     // increment term
     date.setDate(lastDate.getDate() + 1);
   }
+
+  function formatValue(value){
+    
+    // has two decimal points
+    let match = `${value}`.match(/[0-9]+\.[0-9]{2}/)
+    if(match){
+      return match[0].toLocaleString('en')
+    }
+    // has one decimal points
+    else if(`${value}`.match(/[0-9]+\.[0-9]{1}/)){
+      return `${match[0]}0`
+    }
+    // has no decimal point
+    else{
+      return `${value}.00`
+    }
+  }
+
 }

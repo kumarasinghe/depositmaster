@@ -2,7 +2,7 @@
   "name": "com.eleganit.depositmaster",
   "displayName": "Deposit Master",
   "version": "1.0.0",
-  "description": "Plan your future wealth, calculate & forecast interets for investments such as fixed deposits, salary etc.",
+  "description": "Plan your future wealth, calculate & forecast interests for investments such as fixed deposits, salary etc.",
   "main": "index.js",
   "scripts": {
     "build": "cordova clean && cordova build",

@@ -11,7 +11,7 @@ window.onload = () => {
   itemMap[itemID].forecast.forEach((entry, index) => {
     // hide similar entries with the same signatures execpt the last entry
     if (
-      entry[1] + (entry[2] ? entry[2] : "") == entrySignature &&
+      entrySignature == `${entry[1]}${entry[2] ? entry[2] : ""}` &&
       index != itemMap[itemID].forecast.length - 1
     ) {
       return;
@@ -25,11 +25,11 @@ window.onload = () => {
     tr.appendChild(td);
 
     td = document.createElement("td");
-    td.innerText = entry[1].toFixed(2);
+    td.innerText = formatValue(entry[1]);
     tr.appendChild(td);
 
     td = document.createElement("td");
-    td.innerText = entry[2] ? entry[2].toFixed(2) : "";
+    td.innerText = entry[2] ? formatValue(entry[2]) : "";
     tr.appendChild(td);
 
     // highlight current month
@@ -41,15 +41,27 @@ window.onload = () => {
       tr.classList.add("highlight");
     }
 
-    // draw a seperator on january
-    if(entryDate.getMonth() == 0){
-      tr.classList.add("january");
-    }
-
     forecastTableBody.appendChild(tr);
-    entrySignature = entry[1] + (entry[2] ? entry[2] : "");
+    entrySignature = `${entry[1]}${entry[2] ? entry[2] : ""}`;
   });
 };
+
+function formatValue(value){
+    
+  // has two decimal points
+  let match = `${value}`.match(/[0-9]+\.[0-9]{2}/)
+  if(match){
+    return match[0].toLocaleString('en')
+  }
+  // has one decimal points
+  else if(`${value}`.match(/[0-9]+\.[0-9]{1}/)){
+    return `${match[0]}0`
+  }
+  // has no decimal point
+  else{
+    return `${value}.00`
+  }
+}
 
 function onEditButtonClicked() {
   location.href = "manage.html?itemID=" + itemID;

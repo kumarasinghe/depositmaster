@@ -2,7 +2,7 @@
 <widget id="com.naveenk.depositmaster" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Deposit Master</name>
     <description>
-        Plan your future wealth, calculate and forecast interets for investments such as fixed deposits, salary etc.
+        Plan your future wealth, calculate and forecast interests for investments such as fixed deposits, salary etc.
     </description>
     <author email="dndkumarasinghe@gmail.com" href="http://facebook.com/kumarasinghe">
         Apache Cordova Team
